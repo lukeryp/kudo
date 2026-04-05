@@ -212,7 +212,7 @@ export function LibraryClient({ initialTestimonials }: LibraryClientProps) {
                       className="mb-[9px] max-h-[42px] overflow-hidden text-[11px] leading-[1.55]"
                       style={{ color: 'var(--text-m)' }}
                     >
-                      "{student.testimonial_text}"
+                      &ldquo;{student.testimonial_text}&rdquo;
                     </div>
                   )}
 

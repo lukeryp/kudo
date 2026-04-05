@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Topbar } from '../layout/Topbar'
 import { AddStudentModal } from '../students/AddStudentModal'
 
 export function PipelineClient() {
   const [showAdd, setShowAdd] = useState(false)
+  const router = useRouter()
 
   return (
     <>
@@ -18,8 +20,7 @@ export function PipelineClient() {
           onClose={() => setShowAdd(false)}
           onSuccess={() => {
             setShowAdd(false)
-            // Revalidate via router refresh
-            window.location.reload()
+            router.refresh()
           }}
         />
       )}
