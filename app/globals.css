@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green: #00af51;
+  --green-l: #00d462;
+  --green-d: #008a40;
+  --yellow: #f4ee19;
+  --black: #0d0d0d;
+  --surface: #141414;
+  --surface-2: #1a1a1a;
+  --surface-3: #202020;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-g: rgba(0, 175, 81, 0.28);
+  --text: #ffffff;
+  --text-m: rgba(255, 255, 255, 0.52);
+  --text-d: rgba(255, 255, 255, 0.28);
+  --glass: rgba(255, 255, 255, 0.04);
+  --shadow-g: 0 8px 32px rgba(0, 175, 81, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Work Sans', sans-serif;
+  background: var(--black);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[9px] px-[18px] py-2 text-[13px] font-semibold transition-all duration-200 cursor-pointer border-none outline-none font-sans;
+  }
+  .btn-primary {
+    @apply bg-green text-black hover:bg-green-light hover:-translate-y-px;
+    box-shadow: none;
+  }
+  .btn-primary:hover {
+    box-shadow: var(--shadow-g);
+  }
+  .btn-ghost {
+    @apply text-[rgba(255,255,255,0.52)] hover:text-white;
+    background: var(--glass);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover {
+    border-color: var(--border-g);
+  }
+  .btn-danger {
+    background: rgba(255, 80, 80, 0.12);
+    color: #ff5252;
+    border: 1px solid rgba(255, 80, 80, 0.2);
+  }
+  .btn-danger:hover {
+    background: rgba(255, 80, 80, 0.2);
+  }
+
+  .surface-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .glass-input {
+    @apply w-full rounded-[9px] px-[13px] py-[10px] text-[13px] text-white outline-none transition-all duration-200 font-sans;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .glass-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 175, 81, 0.09);
+  }
+  .glass-input::placeholder {
+    color: var(--text-d);
+  }
+
+  .form-label {
+    @apply block mb-[7px] text-[10px] font-bold uppercase tracking-[1.2px];
+    color: var(--text-m);
+  }
+}
